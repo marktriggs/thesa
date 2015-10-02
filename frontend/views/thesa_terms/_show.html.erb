@@ -1,0 +1,26 @@
+<%
+   section_id = "thesa_terms" if section_id.blank?
+%>
+
+<section id="<%= section_id %>">
+  <h3><%= I18n.t("thesa_term._plural") %></h3>
+  <div class="accordion details" id="thesa_terms_accordion">
+    <%= context.list_for(context["thesa_terms"], "thesa_terms[]") do |thesa_term, index| %>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="row collapsed accordion-toggle" data-toggle="collapse" data-parent="#thesa_terms_accordion" href="#thesa_term_<%= index %>">
+            <div class="col-md-1">
+              <span class="glyphicon"></span>
+            </div>
+            <div class="col-md-4">
+              <%= I18n.t("thesa_term._plural") %>
+            </div>
+          </div>
+        </div>
+        <div id="thesa_term_<%= index %>" class="accordion-body collapse">
+          <%= read_only_view(thesa_term) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>
