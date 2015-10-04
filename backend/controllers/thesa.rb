@@ -5,7 +5,7 @@ class ArchivesSpaceService < Sinatra::Base
     .params(["id", :id],
             ["thesa", JSONModel(:thesa), "The updated record", :body => true],
             ["repo_id", :repo_id])
-    .permissions([:update_resource_record])
+    .permissions([:update_thesas_record])
     .returns([200, :updated]) \
   do
     handle_update(Thesa, params[:id], params[:thesa])
@@ -16,7 +16,7 @@ class ArchivesSpaceService < Sinatra::Base
     .description("Create a Thesaurus term")
     .params(["thesa", JSONModel(:thesa), "The record to create", :body => true],
             ["repo_id", :repo_id])
-    .permissions([:update_resource_record])
+    .permissions([:update_thesas_record])
     .returns([200, :created]) \
   do
     handle_create(Thesa, params[:thesa])
@@ -52,7 +52,7 @@ class ArchivesSpaceService < Sinatra::Base
     .description("Delete a Thesaurus term")
     .params(["id", :id],
             ["repo_id", :repo_id])
-    .permissions([:delete_archival_record])
+    .permissions([:delete_thesas_record])
     .returns([200, :deleted]) \
   do
     handle_delete(Thesa, params[:id])

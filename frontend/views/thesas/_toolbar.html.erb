@@ -1,4 +1,4 @@
-<% if user_can?('update_thesa_record') %>
+<% if user_can?('update_thesas_record') %>
   <div class="row">
     <div class="col-md-12">
       <div class="record-toolbar">
@@ -20,28 +20,8 @@
         <% end %>
         <div class="btn-toolbar pull-right">
           <div class="btn-group">
-          <% if user_can?('update_event_record') %>
-            <%= render_aspace_partial :partial => "shared/event_dropdown", :locals => {:record => record} %>
-          <% end %>
-              <div class="btn btn-inline-form">
-                <%= link_to I18n.t("actions.view_published"), File.join(AppConfig[:public_proxy_url], @accession.uri).to_s, :target => "_blank", :class => "btn btn-sm btn-default" %>
-              </div>
-              <div class="btn btn-inline-form">
-                <a class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);">
-                  <%= I18n.t "actions.spawn" %>
-                  <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu open-aligned-right">
-                  <li>
-                    <%= link_to "<span class='icomoon icon-accession'></span> #{I18n.t("accession._singular")}".html_safe, :controller => :accessions, :action => :new, :accession_id => @accession.id %>
-                  </li>
-                  <li>
-                    <%= link_to "<span class='icomoon icon-resource'></span> #{I18n.t("resource._singular")}".html_safe, :controller => :resources, :action => :new, :accession_id => @accession.id %>
-                  </li>
-                </ul>
-              </div>
-            <% if user_can?('delete_archival_record') %>
-              <% if user_can?('delete_archival_record') %>
+            <% if user_can?('delete_thesas_record') %>
+              <% if user_can?('delete_thesas_record') %>
                 <div class="btn btn-inline-form">
                   <%= button_delete_action url_for(:controller => :thesas, :action => :delete, :id => @thesa.id) %>
                 </div>
