@@ -1,0 +1,9 @@
+en:
+  thesa:
+    _singular: Thesa
+    _plural: Thesas
+    subject: Subject
+    general_note: General Note
+    _frontend:
+      section:
+        basic_information: Basic Information
