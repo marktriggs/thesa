@@ -9,6 +9,9 @@
 	  "general_note" => {"type" => "string", "maxLength" => 8192},
       "uri" => {"type" => "string", "required" => false},
       "thesa_terms" => {"type" => "array", "items" => {"type" => "JSONModel(:thesa_term) object"}},
+
+      "suppressed" => {"type" => "boolean", "default" => false},
+      "display_string" => {"type" => "string", "maxLength" => 8192, "readonly" => true},
     },
   },
 }
