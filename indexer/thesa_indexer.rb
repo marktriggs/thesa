@@ -1,19 +1,15 @@
 class CommonIndexer
 
-  @@record_types = [ :archival_object, :resource,
-                    :digital_object, :digital_object_component,
-                    :subject, :location, :classification, :classification_term,
-                    :event, :accession, :thesa,
-                    :agent_person, :agent_software, :agent_family, :agent_corporate_entity]
+  @@record_types << :thesa
 
-  self.add_indexer_initialize_hook do |indexer|
-    # Index extra
+  add_indexer_initialize_hook do |indexer|
+
     indexer.add_document_prepare_hook {|doc, record|
-	  if record['record']['thesa_term']
-        doc['title'] = record['record']['term']
+      if record['record']['jsonmodel_type'] == 'thesa'
+        doc['title'] = record['record']['display_string']
       end
     }
-  end
 
+  end
 
 end
