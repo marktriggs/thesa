@@ -7,6 +7,7 @@
     "properties" => {
 	  "subject" => {"type" => "string", "dynamic_enum" => "thesa_subject"},
 	  "general_note" => {"type" => "string", "maxLength" => 8192},
+      "uri" => {"type" => "string", "required" => false},
       "thesa_terms" => {"type" => "array", "items" => {"type" => "JSONModel(:thesa_term) object"}},
     },
   },
