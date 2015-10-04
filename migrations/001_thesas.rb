@@ -34,7 +34,8 @@ Sequel.migration do
 	  Integer :star_record
 	  Integer :occ
     end
-	
+
+    create_editable_enum('thesa_subject', ["abc", "def", "ghi", "jkl"])
   end
 
 end
