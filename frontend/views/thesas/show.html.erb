@@ -26,7 +26,7 @@
           <% readonly.emit_template("thesa") %>
 
           <% if @thesa.thesa_terms.length > 0 %>
-            <%= render_aspace_partial :partial => "thesa_terms/show", :locals => { :thesa_terms => @thesa.thesa_terms, :section_id => "thesa_thesa_terms_" } %>
+            <%= render_aspace_partial :partial => "thesa_terms/show", :locals => { :thesa_terms => @thesa.thesa_terms, :section_id => "thesa_thesa_terms_", :context => readonly } %>
           <% end %>
 
          <%= show_plugins_for(@thesa, readonly) %>
